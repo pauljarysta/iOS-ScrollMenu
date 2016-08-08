@@ -1,66 +1,61 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ScrollMenu" customModule="ScrollMenu" customModuleProvider="target">
+            <connections>
+                <outlet property="datePicker" destination="svx-C5-hBD" id="s4u-f2-D7R"/>
+                <outlet property="itemButton" destination="CbM-sH-hqZ" id="dBQ-Nq-cAb"/>
+                <outlet property="toolbar" destination="WMw-Dw-opA" id="L3h-nz-79N"/>
+            </connections>
+        </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="ScrollMenu" customModule="ScrollMenu" customModuleProvider="target">
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
             <rect key="frame" x="0.0" y="0.0" width="600" height="216"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IMx-lt-sm6">
+                <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="svx-C5-hBD">
                     <rect key="frame" x="0.0" y="0.0" width="600" height="216"/>
-                    <subviews>
-                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pGG-B2-DsK">
-                            <rect key="frame" x="0.0" y="0.0" width="600" height="52"/>
-                            <subviews>
-                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QoQ-wo-DBy">
-                                    <rect key="frame" x="240" y="11" width="120" height="33"/>
-                                    <constraints>
-                                        <constraint firstAttribute="width" constant="120" id="Jip-mP-9cb"/>
-                                        <constraint firstAttribute="height" constant="33" id="cO4-Wy-Ddl"/>
-                                    </constraints>
-                                    <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="15"/>
-                                    <state key="normal" title="Open">
-                                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                    </state>
-                                    <connections>
-                                        <action selector="actionMenu:" destination="iN0-l3-epB" eventType="touchUpInside" id="n9D-2q-2kB"/>
-                                    </connections>
-                                </button>
-                            </subviews>
-                            <color key="backgroundColor" red="0.1333333333" green="0.1529411765" blue="0.21176470589999999" alpha="1" colorSpace="calibratedRGB"/>
-                            <constraints>
-                                <constraint firstItem="QoQ-wo-DBy" firstAttribute="centerX" secondItem="pGG-B2-DsK" secondAttribute="centerX" id="7SS-Kh-LJe"/>
-                                <constraint firstItem="QoQ-wo-DBy" firstAttribute="centerY" secondItem="pGG-B2-DsK" secondAttribute="centerY" constant="1.5" id="fs1-ql-AHw"/>
-                                <constraint firstAttribute="height" constant="52" id="mgK-ZB-jB8"/>
-                            </constraints>
-                        </view>
-                    </subviews>
-                    <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
+                    <date key="date" timeIntervalSinceReferenceDate="492313629.58513099">
+                        <!--2016-08-08 01:47:09 +0000-->
+                    </date>
+                </datePicker>
+                <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WMw-Dw-opA">
+                    <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
                     <constraints>
-                        <constraint firstAttribute="trailing" secondItem="pGG-B2-DsK" secondAttribute="trailing" id="Eyo-aP-rCY"/>
-                        <constraint firstItem="pGG-B2-DsK" firstAttribute="top" secondItem="IMx-lt-sm6" secondAttribute="top" id="N3V-kH-Tp1"/>
-                        <constraint firstItem="pGG-B2-DsK" firstAttribute="leading" secondItem="IMx-lt-sm6" secondAttribute="leading" id="l1y-7D-Ws1"/>
+                        <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="44" id="AIc-Ev-qdL"/>
+                        <constraint firstAttribute="height" constant="44" id="PYs-Z9-vIZ"/>
                     </constraints>
-                </view>
+                    <items>
+                        <barButtonItem style="plain" id="tVh-Kw-469">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="CbM-sH-hqZ">
+                                <rect key="frame" x="20" y="5" width="58" height="34"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Open">
+                                    <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                </state>
+                                <connections>
+                                    <action selector="actionMenu:" destination="-1" eventType="touchUpInside" id="slm-xF-VnC"/>
+                                </connections>
+                            </button>
+                        </barButtonItem>
+                    </items>
+                </toolbar>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
-                <constraint firstAttribute="bottom" secondItem="IMx-lt-sm6" secondAttribute="bottom" id="HaH-Xs-hZg"/>
-                <constraint firstItem="IMx-lt-sm6" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="KMw-uC-sdi"/>
-                <constraint firstAttribute="trailing" secondItem="IMx-lt-sm6" secondAttribute="trailing" id="LL1-dQ-hwm"/>
-                <constraint firstItem="IMx-lt-sm6" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="vO0-hX-qb8"/>
+                <constraint firstItem="svx-C5-hBD" firstAttribute="trailing" secondItem="WMw-Dw-opA" secondAttribute="trailing" id="1xg-qP-yjT"/>
+                <constraint firstItem="svx-C5-hBD" firstAttribute="leading" secondItem="WMw-Dw-opA" secondAttribute="leading" id="Dfz-ex-UKa"/>
+                <constraint firstItem="svx-C5-hBD" firstAttribute="top" secondItem="WMw-Dw-opA" secondAttribute="top" id="E7a-H3-1re"/>
+                <constraint firstAttribute="trailing" secondItem="WMw-Dw-opA" secondAttribute="trailing" id="SXQ-dq-itL"/>
+                <constraint firstItem="WMw-Dw-opA" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="TyN-cA-WDT"/>
+                <constraint firstItem="WMw-Dw-opA" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="fgM-NE-eiD"/>
             </constraints>
+            <nil key="simulatedStatusBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-            <connections>
-                <outlet property="actionMenu" destination="fs1-ql-AHw" id="sRr-WI-X0w"/>
-                <outlet property="viewHeaderMenu" destination="pGG-B2-DsK" id="zJc-UL-5dV"/>
-                <outlet property="viewMenu" destination="IMx-lt-sm6" id="MSH-zQ-bCF"/>
-            </connections>
             <point key="canvasLocation" x="315" y="129"/>
         </view>
     </objects>

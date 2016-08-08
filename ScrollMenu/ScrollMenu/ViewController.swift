@@ -10,28 +10,35 @@ import UIKit
 import MapKit
 import AudioToolbox
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, ScrollMenuDelegate {
 	
-	
+	// Remove
 	@IBOutlet weak var containerView: UIView!
-	
 	@IBOutlet weak var toolBar: UIToolbar!
+	@IBOutlet weak var actionItemMenu: UIBarButtonItem!
 	@IBOutlet weak var actionMenu: UIButton!
 	@IBOutlet weak var viewHeaderMenu: UIView!
-	@IBOutlet weak var viewMenu: UIView! // frame = (0 451; 375 216)
+	@IBOutlet weak var viewMenu: UIView!
 	
 	@IBOutlet weak var constraintBottomMenu: NSLayoutConstraint!
 	@IBOutlet weak var constraintBottomContentView: NSLayoutConstraint!
 	
-	var myPopupView: ScrollMenu!
+	// Keep
+	
+	@IBOutlet weak var textField: UITextField!
+	
+	let screenWidth: CGFloat = UIScreen.mainScreen().bounds.width
+	let screenHeight: CGFloat = UIScreen.mainScreen().bounds.height
+	
+	var scrollMenu: ScrollMenu!
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		
-		customView()
-		initMenu()
-//		self.myPopupView = ScrollMenu(frame: CGRect(x: 10, y: 200, width: 300, height: 200))
-//		self.view.addSubview(myPopupView)
+		scrollMenu = ScrollMenu()
+		scrollMenu.backgroundColor = UIColor.cyanColor()
+		view.addSubview(scrollMenu)
+		scrollMenu.delegate = self
 	}
 
 	override func didReceiveMemoryWarning() {
@@ -62,7 +69,7 @@ class ViewController: UIViewController {
 	override func touchesEnded(touches: Set<UITouch>, withEvent event: UIEvent?) {
 		if let touch = touches.first {
 			let location = touch.locationInView(self.view)
-			print("Location: \(location)")
+//			print("Location: \(location)")
 		}
 	}
 	
@@ -120,7 +127,7 @@ class ViewController: UIViewController {
 				
 				if (menuViewMaxTranslation - newSenderMenuView) > (menuViewMaxTranslation - menuViewMinTranslation) / 2 {
 
-					// Above
+					// Open
 					UIView.animateWithDuration(0.2, delay: 0.0, options: UIViewAnimationOptions.CurveEaseInOut, animations: {
 
 						senderMenuView.center.y = 559
@@ -129,12 +136,12 @@ class ViewController: UIViewController {
 						}, completion: { finished in
 							// Do someting when is open
 							self.actionMenu.setTitle("Close", forState: .Normal)
-							AudioServicesPlaySystemSound(kSystemSoundID_Vibrate)
+							// AudioServicesPlaySystemSound(kSystemSoundID_Vibrate)
 					})
 					self.actionMenu.selected = false
 				} else {
 					
-					// Below
+					// Close
 					UIView.animateWithDuration(0.2, delay: 0.0, options: UIViewAnimationOptions.CurveEaseIn, animations: {
 						
 						senderMenuView.center.y = 723
@@ -153,6 +160,15 @@ class ViewController: UIViewController {
 
 		}
 
+	}
+	
+	func updateScrollMenuData(date: NSDate) {
+
+		let dateFormatter = NSDateFormatter()
+		dateFormatter.dateFormat = "EEEE d MMM yyyy"
+		let dateString = dateFormatter.stringFromDate(date)
+		
+		textField.text = dateString
 	}
 	
 	func getHeightMenuView() -> CGFloat {
@@ -183,7 +199,7 @@ class ViewController: UIViewController {
 		} else if (sender.selected == true) {
 			actionMenu.setTitle("Close", forState: .Normal)
 			doAnimationConstraint(constraint: constraintBottomMenu, constant: 0)
-			AudioServicesPlaySystemSound(kSystemSoundID_Vibrate)
+			// AudioServicesPlaySystemSound(kSystemSoundID_Vibrate)
 			sender.selected = false
 		}
 		
