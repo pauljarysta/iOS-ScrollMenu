@@ -19,7 +19,7 @@ public extension UIColor {
 	}
 	
 	class func darkBlue() -> UIColor {
-		return UIColor.convertToUIColor(0x2D3446, alpha: 1.0)
+		return UIColor.convertToUIColor(hex: 0x2D3446, alpha: 1.0)
 	}
 	
 	
