@@ -12,8 +12,8 @@ class ViewController: UIViewController, ScrollMenuDelegate {
 	
 	@IBOutlet weak var textField: UITextField!
 	
-	let screenWidth: CGFloat = UIScreen.mainScreen().bounds.width
-	let screenHeight: CGFloat = UIScreen.mainScreen().bounds.height
+	let screenWidth: CGFloat = UIScreen.main.bounds.width
+	let screenHeight: CGFloat = UIScreen.main.bounds.height
 	
 	var scrollMenu: ScrollMenu!
 	
@@ -21,7 +21,7 @@ class ViewController: UIViewController, ScrollMenuDelegate {
 		super.viewDidLoad()
 		
 		scrollMenu = ScrollMenu()
-		scrollMenu.backgroundColor = UIColor.cyanColor()
+		scrollMenu.backgroundColor = UIColor.cyan
 		view.addSubview(scrollMenu)
 		scrollMenu.delegate = self
 	}
@@ -32,9 +32,9 @@ class ViewController: UIViewController, ScrollMenuDelegate {
 	
 	func updateScrollMenuData(date: NSDate) {
 
-		let dateFormatter = NSDateFormatter()
+		let dateFormatter = DateFormatter()
 		dateFormatter.dateFormat = "EEEE d MMM yyyy"
-		let dateString = dateFormatter.stringFromDate(date)
+		let dateString = dateFormatter.string(from: date as Date)
 		
 		textField.text = dateString
 	}
